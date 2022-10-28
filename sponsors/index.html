@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="height=device-height, initial-scale=1"><title>Sponsors | </title><meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #BFB37C;
+        /* Primary theme text color */
+        --primary-text-color: #003057;
+        /* Primary theme link color */
+        --primary-link-color: #857437;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #d46e13;
+        /* Header -- Navy blue */
+        --header-background: #003057;
+        --header-text-color: #BFB37C;
+    }
+</style><link href=https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap rel=stylesheet><link href=https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap rel=stylesheet><link rel=stylesheet href=/normalize.css><link rel=stylesheet href=https://rocketry.gatech.edu/base.css><body><header class=box-shadow><a href=https://rocketry.gatech.edu/> <div class=logo><img src=https://rocketry.gatech.edu/branding/header.png alt=logo></div> </a><nav><a class="nav-item subtitle-text"href=https://rocketry.gatech.edu/sponsors/>Sponsors</a><a class="nav-item subtitle-text"href=https://rocketry.gatech.edu/about/>About</a><div class="dropdown subtitle-text nav-item"><button class="dropdown-button nav-item subtitle-text"style="margin: 0;">Teams</button><div class=dropdown-content><a class="nav-item subtitle-text"style="margin: 0;"href=https://rocketry.gatech.edu/teams/gtxr/>GTXR</a><a class="nav-item subtitle-text"style="margin: 0;"href=https://rocketry.gatech.edu/teams/hpr/>HPR</a><a class="nav-item subtitle-text"style="margin: 0;"href=https://rocketry.gatech.edu/teams/hab/>HAB</a></div></div><a class="nav-item subtitle-text"href=https://ramblin-rocket-club.slack.com/>Slack</a><a class="nav-item subtitle-text"href=https://lists.gatech.edu/sympa/subscribe/gtrc>Mailing List</a></nav></header><main><div class="content text"><div class=heading-text>Sponsors</div><p>The Ramblin’ Rocket Club is funded through generous sponsorships and donations that help us purchase materials and fund our research and travel. These companies and individuals power us to give students hands-on technical and teamwork experience they need to become incredible engineers and leaders before entering the workforce. If you are interested in supporting us to continue this mission, please consider donating through this button:<h4 id=donate-now><a href=https://epay.gatech.edu/C20793_ustores/web/product_detail.jsp?PRODUCTID=5070><strong>Donate Now</strong></a></h4><p>If you are representing a company, make a material donation, or wish to sponsor Ramblin’ Rocket Club, please contact us here:<h4 id=contact-us><a href=mailto:ramblinrocketclub@gmail.com><strong>Contact Us!</strong></a></h4><h2 id=team-partner><strong>Team Partner</strong></h2><hr><p><img src=https://user-images.githubusercontent.com/116322179/198417955-f17ac361-68df-4a44-9075-0f2138269ed1.jpeg alt=HEXAGON><h2 id=interplanetary-level-sponsors><strong>Interplanetary Level Sponsors</strong></h2><hr><p><img src=https://user-images.githubusercontent.com/116322179/198418053-d9a26b7c-6406-440d-a89e-bfe60599158b.png alt=image> <img src=https://user-images.githubusercontent.com/116322179/198418178-e45ff716-9100-4311-b34e-90a4c0a512ad.png alt=image><h2 id=orbital-level-sponsors><strong>Orbital Level Sponsors</strong></h2><hr><p><img src=https://user-images.githubusercontent.com/116322179/198418332-a49f00c8-ea4d-4761-80f6-c352c1fe63f8.png alt=image><img src=https://user-images.githubusercontent.com/116322179/198418588-bbe3715b-7f8e-4397-97af-b7bc403a102f.png alt=image><img src=https://user-images.githubusercontent.com/116322179/198419345-90835990-7477-4fe5-84e9-00970126cbef.png alt=image><h1 id=mr-shi><strong>MR. SHI</strong></h1><h2 id=sub-orbital-level-sponsors><strong>Sub-Orbital Level Sponsors</strong></h2><hr><p><img src=https://user-images.githubusercontent.com/116322179/198418676-0a3de07d-23ba-4df8-b5d2-b33dbe6b6fd3.png alt=image> <img src=https://user-images.githubusercontent.com/116322179/198418705-d6e60765-8b8c-4f1e-9304-d21a40e440c1.png alt=image> <img src=https://user-images.githubusercontent.com/116322179/198418734-4000741b-ea36-4fdc-a56b-6dad9e997421.png alt=image> <img src=https://user-images.githubusercontent.com/116322179/198418783-3c9f7744-6b78-402e-a9e3-2cf49d00391f.png alt=image> <img src=https://user-images.githubusercontent.com/116322179/198419182-0759cf46-e8b0-4c0a-a92a-cf404ffc737e.png alt=image></div></main><footer><small class=subtext> Ramblin' Rocket Club © 2021 </small></footer></body><script>
+    function highlightNav(heading) {
+      let pathname = location.pathname;
+      document.querySelectorAll(".toc a").forEach((item) => {
+        item.classList.remove("active");
+      });
+      document
+        .querySelector(".toc a[href$='" + pathname + "#" + heading + "']")
+        .classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+      let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+      let elementArr = [];
+
+      h.forEach((item) => {
+        if (item.id !== "") {
+          elementArr[item.id] = item.getBoundingClientRect().top;
+        }
+      });
+      elementArr.sort();
+      for (let key in elementArr) {
+        if (!elementArr.hasOwnProperty(key)) {
+          continue;
+        }
+        if (elementArr[key] > 0 && elementArr[key] < 300) {
+          if (currentHeading !== key) {
+            highlightNav(key);
+            currentHeading = key;
+          }
+          break;
+        }
+      }
+    };
+  </script>
